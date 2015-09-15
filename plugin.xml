@@ -11,10 +11,6 @@
     <repo>git@git.wnyc.net:mobile/cordova/cordova-plugin-hockeyapp.git</repo>
 
 
-	<engines>
-		<engine name="cordova" version=">4.0.0" />
-	</engines>
-
 	<js-module src="src/hockey.js" name="hockeyApp">
 		<clobbers target="window.hockeyApp" />
 	</js-module>
