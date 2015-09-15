@@ -8,22 +8,18 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.lang.RuntimeException;
-import java.lang.Runnable;
-import java.lang.Thread;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 import android.util.Log;
 
 public class HockeyAppPlugin extends CordovaPlugin {
 	protected static final String LOG_TAG = "HockeyAppPlugin";
-	
+	String _hockeyAppId = "HOCKEY_APP_KEY";
+
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-	  _checkForCrashes();
-	  _checkForUpdates();
 		Log.d(LOG_TAG, "HockeyApp Plugin initialized");
 	}
 	
@@ -33,24 +29,21 @@ public class HockeyAppPlugin extends CordovaPlugin {
 	  _checkForUpdates();
 		super.onResume(multitasking);
 	}
+	
+	@Override
+	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		if (action.equalsIgnoreCase("configure")){
+			_hockeyAppId = args.getString(0);
 
-  @Override
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-    boolean ret=true;
-    if(action.equalsIgnoreCase("forcecrash")){
-      new Thread(new Runnable() {
-        public void run() {
-          Calendar c = Calendar.getInstance();
-          SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-          throw new RuntimeException("Test crash at " + df.format(c.getTime()));
-        }
-      }).start();
-    }else{
-      callbackContext.error(LOG_TAG + " error: invalid action (" + action + ")");
-      ret=false;
-    }
-    return ret;
-  }
+		 	_checkForCrashes();
+		 	_checkForUpdates(); 
+
+		 	return true;
+		}
+
+		callbackContext.error(LOG_TAG + " hello ERROR: invalid action (" + action + ")");
+		return false;
+	}
 		
 	@Override
 	public void onDestroy() {
@@ -63,12 +56,16 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		Log.d(LOG_TAG, "HockeyApp Plugin onReset--WebView has navigated to new page or refreshed.");
 		super.onReset();
 	}
+
+	private boolean _isAppIdSet(){
+		return _hockeyAppId!=null && !_hockeyAppId.equals("") && !_hockeyAppId.contains("HOCKEY_APP_KEY");
+	}
 	
 	protected void _checkForCrashes() {
 		Log.d(LOG_TAG, "HockeyApp Plugin checking for crashes");
-		String hockeyAppId="__HOCKEY_APP_KEY__"; // replaced by build script. better to pull from a a config file?
-		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){
-			CrashManager.register(cordova.getActivity(), hockeyAppId);
+		
+		if(_isAppIdSet()){
+			CrashManager.register(cordova.getActivity(), _hockeyAppId);
 		}
 	}
 
@@ -76,9 +73,8 @@ public class HockeyAppPlugin extends CordovaPlugin {
 		// Remove this for store builds!
 		//__HOCKEY_APP_UPDATE_ACTIVE_START__
 		Log.d(LOG_TAG, "HockeyApp Plugin checking for updates");
-		String hockeyAppId="__HOCKEY_APP_KEY__";
-		if(hockeyAppId!=null && !hockeyAppId.equals("") && !hockeyAppId.contains("HOCKEY_APP_KEY")){		
-			UpdateManager.register(cordova.getActivity(), hockeyAppId);
+		if(_isAppIdSet()){
+			UpdateManager.register(cordova.getActivity(), _hockeyAppId);
 		}
 		//__HOCKEY_APP_UPDATE_ACTIVE_END__
 	}

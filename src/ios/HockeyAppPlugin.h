@@ -7,6 +7,5 @@
 
 @interface HockeyAppPlugin : CDVPlugin <BITHockeyManagerDelegate, BITUpdateManagerDelegate,BITCrashManagerDelegate>
 
-- (void)forcecrash:(CDVInvokedUrlCommand*)command;
-
+- (void) configure:(CDVInvokedUrlCommand *)command;
 @end
