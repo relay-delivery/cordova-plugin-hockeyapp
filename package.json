@@ -1,5 +1,5 @@
 {
-  "name": "ethoinformatics-hockeyapp",
+  "name": "org.ethoinformatics.cordova.hockeyappplugin",
   "version": "0.1.0",
   "description": "HockeyApp Plugin",
   "cordova": {
