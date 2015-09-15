@@ -4,15 +4,11 @@
 
 This plugin supports PhoneGap/Cordova apps running on both iOS and Android.
 
-### Version Requirements
-
-This plugin is meant to work with Cordova 3.5.0+ and the latest version of the HockeyApp library.
 
 SDK documentation and integration guides for IOS and Android:  
 http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios  
 http://support.hockeyapp.net/kb/client-integration-android-other-platforms/hockeyapp-for-android-sdk  
 
-TODO - update plugin to latest SDK versions 
 
 ## Installation
 
