@@ -24,7 +24,7 @@ TODO - update plugin to latest SDK versions
 
 2. Install this plugin using PhoneGap/Cordova cli:
 
-        cordova plugin add https://github.com/wnyc/cordova-plugin-hockeyapp.git
+        cordova plugin add https://github.com/ethoninformatics/cordova-plugin-hockeyapp.git
 
 3. Call configure with your hockey app id
 ```js
