@@ -1,4 +1,4 @@
-package org.nypr.cordova.hockeyappplugin;
+package org.ethoinformatics.cordova.hockeyappplugin;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;

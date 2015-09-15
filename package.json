@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "HockeyApp Plugin",
   "cordova": {
-    "id": "org.nypr.cordova.hockeyappplugin",
+    "id": "org.ethoinformatics.cordova.hockeyappplugin",
     "platforms": [
       "android",
       "ios"
