@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="org.nypr.cordova.hockeyappplugin"
+    id="delivery.relay.cordova.hockeyappplugin"
     version="0.1.0">
     <name>HockeyApp</name>
     <description>HockeyApp Plugin</description>
@@ -18,7 +18,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="HockeyAppPlugin" >
-                <param name="android-package" value="org.nypr.cordova.hockeyappplugin.HockeyAppPlugin"/>
+                <param name="android-package" value="delivery.relay.cordova.hockeyappplugin.HockeyAppPlugin"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
@@ -45,7 +45,7 @@
         </config-file>
 
 <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-        <source-file src="src/android/HockeyAppPlugin.java" target-dir="src/org/nypr/cordova/hockeyappplugin/" />
+        <source-file src="src/android/HockeyAppPlugin.java" target-dir="src/delivery/relay/cordova/hockeyappplugin/" />
         <!-- <source-file src="src/android/HockeySDK-4.0.1.aar" target-dir="libs" /> -->
 		<resource-file src="src/android/HockeySDK-4.0.1.aar" target="libs/HockeySDK-4.0.1.aar" />
     </platform>

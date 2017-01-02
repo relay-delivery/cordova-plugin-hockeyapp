@@ -1,9 +1,9 @@
 {
-  "name": "org.ethoinformatics.cordova.hockeyappplugin",
+  "name": "delivery.relay.cordova.hockeyappplugin",
   "version": "0.1.0",
   "description": "HockeyApp Plugin",
   "cordova": {
-    "id": "org.ethoinformatics.cordova.hockeyappplugin",
+    "id": "delivery.relay.cordova.hockeyappplugin",
     "platforms": [
       "android",
       "ios"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethoinformatics/cordova-plugin-hockeyapp.git"
+    "url": "git+https://github.com/relay-delivery/cordova-plugin-hockeyapp.git"
   },
   "keywords": [
     "hockeyapp",
@@ -30,7 +30,7 @@
   "author": "wnyc",
   "license": "--",
   "bugs": {
-    "url": "https://github.com/ethoinformatics/cordova-plugin-hockeyapp/issues"
+    "url": "https://github.com/relay-delivery/cordova-plugin-hockeyapp/issues"
   },
-  "homepage": "https://github.com/ethoinformatics/cordova-plugin-hockeyapp#readme"
+  "homepage": "https://github.com/relay-delivery/cordova-plugin-hockeyapp#readme"
 }

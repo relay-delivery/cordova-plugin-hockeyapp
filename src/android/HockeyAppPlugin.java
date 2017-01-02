@@ -1,4 +1,4 @@
-package org.nypr.cordova.hockeyappplugin;
+package delivery.relay.cordova.hockeyappplugin;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
